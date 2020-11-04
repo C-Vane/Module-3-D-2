@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Artist</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--FontAwesome-->
+        <script src="https://kit.fontawesome.com/c8c5d377fb.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--Artist CSS-->
+        <link rel="icon" type="image/png" href="/asset/favicon (1).ico" />
+
+
+        <!--Link css-->
+        <link rel="stylesheet" href="/buttons.css">
+
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/navbar.css">
+        <!---FONT CIRCULAR-->
+        <link href="//db.onlinewebfonts.com/c/02d8f1743ede250c7c9865f1574d7cc6?family=Circular+Book" rel="stylesheet"
+            type="text/css" />
+    </head>
+
+    <body>
+        <div class="container-fluid mb-5 pb-5">
+
+            <!-----=================SIDE NAVBAR================----->
+            <div class="row">
+                <div id="sidebar">
+                    <ul class="nav flex-wrap flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <img src="../logo/spotifylogo.png" style="height: 40px; width: auto" alt="" />
+                            </a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-left form-inline mt-3 ml-4">
+                            <a class="nav-link" href="/Home/Home2.html"> <i class="fa fa-home mr-2"></i> Home</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-left form-inline ml-4">
+                            <a class="nav-link" href="/search/search.html"><i class="fa fa-search mr-2"></i>Search</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-left form-inline ml-4">
+                            <a class="nav-link" href="/Artists/Artist.html">
+                                <i class="fa fa-book mr-2"></i>Your Library</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-left form-inline" id="smallItems">
+                            <a class="nav-link" href="#"><i class="fa fa-arrow-circle-down mr-2"></i><small>Install
+                                    App</small></a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-left form-inline" id="smallItems2">
+                            <a class="nav-link" href="#"><i class="fa fa-user mr-2"></i><small>User Name</small></a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- ================================================ MAIN PAGE============================ -->
+                <div class="col p-0" id="content">
+                    <main class="pl-5 pr-5">
+                        <!-- =========== Header Navigation ========= -->
+                        <div class="container">
+                            <nav id="navbar" class="navbar navbar-expand-md">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#navcontent" aria-controls="#navcontent" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"> <i class="fa fa-bars text-white"
+                                            aria-hidden="true"></i></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navcontent">
+                                    <ul class="mb-0 p-0 d-flex justify-content-center pt-4">
+                                        <li><a type="button" class="navlink mr-5" onclick="page('trending', 'blue')"
+                                                href="#" id="defaultopen" aria-current="current">trending</a></li>
+                                        <li><a type="button" class="navlink mr-5" onclick="page('podcast', 'green')"
+                                                href="#">
+                                                podcast</a></li>
+                                        <li><a type="button" class="navlink mr-5" onclick="page('genres', 'red')"
+                                                href="#">moods
+                                                and genres</a>
+                                        </li>
+                                        <li><a type="button" class="navlink mr-5" onclick="page('releases', 'violet')"
+                                                href="#">new
+                                                releases</a>
+                                        </li>
+                                        <li><a type="button" class="navlink mr-5" onclick="page('discover', 'orange')"
+                                                href="#">discover</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+
+                        <!--------===================TRENDING=================-------->
+
+                        <section class="container p-2 ml-4 page" id="trending">
+                            <h1>Albums by Eminem</h1>
+                            <div class="row mr-3" id="home_page_one">
+
+                            </div>
+                        </section>
+
+                        <!--=========================PODCAST=============================-->
+                        <section class="container p-2 ml-4 page" id="podcast">
+                            <h1>Metallica</h1>
+                            <div class="row mr-3" id="home_page_two">
+                            </div>
+                        </section>
+                        <!--=========================GENERS=============================-->
+                        <section class="container p-2 ml-4 page" id="genres">
+                            <h1>Behemoth</h1>
+                            <div class="row mr-3" id="home_page_three">
+
+
+
+                            </div>
+                        </section>
+                        <!--=========================NEW RELEASES=============================-->
+                        <section class="container p-2 ml-4 page" id="releases">
+                            <h1>New releases</h1>
+                            <div class="row mr-3" id="home_page_four">
+                            </div>
+                        </section>
+                        <!--=========================DISCOVER=============================-->
+                        <section class="container p-2 ml-4 page" id="discover">
+                            <h1>Discover</h1>
+                            <div class="row mr-3" id="home_page_five">
+
+
+
+                            </div>
+                        </section>
+
+
+
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn more" onclick="listAlbums(event)">List Albums</button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn more" onclick="unikAlbums(event)">Unique Albums</button>
+                            </div>
+                        </div>
+
+                    </main>
+                </div>
+            </div>
+            <footer class="page-footer font-small">
+                <div class="container-fluid">
+                    <div class="player gradient">
+                        <div class="row">
+                            <div class="col d-flex justify-content-left form-inline">
+                                <img class="song-info-cover" style="width: 70px; padding-bottom: 5px; padding-top: 5px"
+                                    src="../logo/queen.jpg" alt="" />
+                                <div class="song-info-text" style="font-size: 10pt; color: white; margin-left: 7px">
+                                    <div class="song-info-title">Procession</div>
+                                    <div class="song-info-title"><small>Queen</small></div>
+                                </div>
+                            </div>
+
+                            <div class="col d-flex justify-content-center form-inline" id="playerButtons">
+                                <a class="button gradient" id="random" href="" title="">
+                                    <i class="fa fa-random"></i>
+                                </a>
+                                <a class="button gradient" id="backward" href="" title="" style="margin-left: 30px">
+                                    <i class="fa fa-step-backward"></i>
+                                </a>
+                                <button onclick="playAudio()" type="button" id="play" href="" title=""
+                                    style="margin-left: 30px">
+                                    <i class="fa fa-play-circle fa-2x"></i>
+                                </button>
+                                <a class="button gradient" id="forward" href="" title="" style="margin-left: 30px">
+                                    <i class="fa fa-step-forward"></i>
+                                </a>
+                                <a class="button gradient" id="repeat" href="" title="" style="margin-left: 30px">
+                                    <i class="fa fa-repeat"></i>
+                                </a>
+
+                                <div class="progress-container w-100">
+                                    <div class="progress-time" id="current-time"></div>
+                                    <input type="range" id="progress" value="0" class="progress-range" />
+                                    <div class="progress-time" id="duration"></div>
+                                </div>
+                            </div>
+
+                            <div class="col v-controls-wrapper">
+                                <div class="float-right volume-controls">
+                                    <i class="fa fa-tasks"></i>
+                                    <i class="fa fa-laptop ml-3"></i>
+                                    <i class="fa fa-volume-up mx-3"></i>
+                                    <input type="range" id="seek" value="0" min="0" max="1" step="0.01"
+                                        onchange="changevolume(this.value)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-sm-block d-md-none">
+                            <div class="d-flex justify-content-center">
+                                <a class="nav-link" href="/Home/Home2.html">
+                                    <i class="fa fa-home mr-2"></i> Home</a>
+                                <a class="nav-link" href="/search/search.html"><i
+                                        class="fa fa-search mr-2"></i>Search</a>
+                                <a class="nav-link" href="/Artists/Artist.html">
+                                    <i class="fa fa-book mr-2"></i>Your Library</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <audio id="myAudio">
+                    <source src="/queenProcession.mp3" type="audio/mpeg">
+                </audio>
+
+                <script src="/player.js"></script>
+
+            </footer>
+        </div>
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+            </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="/script.js" type="module"></script>
+        <script src="/topnavbar.js"></script>
+        <script>
+            const find = (name) => {
+                return document.querySelector(name);
+            };
+
+            let uniqueAlbums = [],
+                albums = [];
+            let destination = [find("#home_page_one"), find("#home_page_two"), find("#home_page_three")];
+            let search = ["eminem", "metallica", "behemoth"];
+
+            window.onload = () => {
+                for (let x = 0; x < destination.length; x++) {
+                    fetch("https://rapidapi.p.rapidapi.com/search?q=" + search[x], {
+                        method: "GET",
+                        headers: {
+                            "x-rapidapi-key": "49f4e1e876msh90846b28b1ca30fp193c58jsn17d62173eae9",
+                            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+                        },
+                    })
+                        .then((response) => {
+                            //console.log(response);
+                            return response.json();
+                        })
+                        .then((body) => {
+                            //console.log(body.data[1]);
+                            for (let i = 0; i < body.data.length; i++) {
+                                if (uniqueAlbums.includes(body.data[i].album.id) != true) {
+                                    uniqueAlbums.push(body.data[i].album.id);
+                                    albums.push(body.data[i].album.title);
+                                }
+                                destination[x].innerHTML += `<div class="col-12 col-sm-6 col-md-4 col-lg-2 p-0">
+        <div class="composition m-1">
+          <div class="image">
+            <img src="${body.data[i].album.cover_medium}" class="albumcover" alt="Error Occured">
+            <div class="playbtns d-flex flex-row justify-content-around">
+              <button class="btn btn-success"><a href='${body.data[i].preview}' class="fa fa-play text-decoration-none text-white"></a></button>
+            </div>
+          </div>
+          <figcaption>${body.data[i].album.title}</figcaption>
+        </div>
+        </div>`;
+                            }
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                        });
+
+                }
+            };
+            const listAlbums = (event) => {
+                let list = document.createElement("ul");
+                let header = document.createElement("h4");
+                header.classList.add('mt-5');
+                header.innerText = "List of albums on this page";
+                const destination = event.target.parentNode;
+                destination.innerHTML = '';
+                for (let i = 0; i < albums.length; i++) {
+                    let li = document.createElement("li");
+                    li.innerText = albums[i];
+                    list.appendChild(li);
+                }
+                destination.appendChild(header);
+                destination.appendChild(list);
+            };
+            const unikAlbums = (event) => {
+                let number = document.createElement("h1");
+                number.classList.add('mt-5');
+                const destination = event.target.parentNode;
+                destination.innerHTML = '';
+                number.innerText = uniqueAlbums.length
+                destination.appendChild(number);
+            };
+
+
+
+        </script>
+
+        <!-- <h1>Start from your previous Spotify Exercise.</h1>
+
+        <p>
+            The goal of this exercise is to fetch data from the API instead of having
+            them "wired up" in the page.
+        </p>
+
+        <p>Generate automatically 3 lists based on the "search API" response</p>
+        <ul>
+            <li>es.: https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem</li>
+            <li>es.: https://deezerdevs-deezer.p.rapidapi.com/search?q=metallica</li>
+            <li>es.: https://deezerdevs-deezer.p.rapidapi.com/search?q=behemoth</li>
+        </ul>
+
+        <h3>
+            Load them during page load, and create the collections based on the API
+            response.
+        </h3>
+
+        <h4>
+            Make the central part of the page scrollable both horizontally and
+            vertically
+        </h4>
+
+        <h4>
+            Add a "List albums" button. When pressed, he should create and display a
+            list of albums on the page
+        </h4>
+
+        <h4>
+            Add a "Count Unique" button. When pressed, he should log the number of
+            unique albums on the page
+        </h4>-->
+    </body>
+
+</html>
