@@ -138,10 +138,10 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <button class="btn more" onclick="listAlbums(event)">List Albums</button>
+                                <button class="btn" onclick="listAlbums(event)">List Albums</button>
                             </div>
                             <div class="col-6">
-                                <button class="btn more" onclick="unikAlbums(event)">Unique Albums</button>
+                                <button class="btn" onclick="unikAlbums(event)">Unique Albums</button>
                             </div>
                         </div>
 
@@ -241,46 +241,51 @@
                 albums = [];
             let destination = [find("#home_page_one"), find("#home_page_two"), find("#home_page_three")];
             let search = ["eminem", "metallica", "behemoth"];
+            let fetchTracks = [];
+            const headers = {
+                "x-rapidapi-key": "49f4e1e876msh90846b28b1ca30fp193c58jsn17d62173eae9",
+                "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            };
 
             window.onload = () => {
                 for (let x = 0; x < destination.length; x++) {
-                    fetch("https://rapidapi.p.rapidapi.com/search?q=" + search[x], {
+                    fetchTracks[x] = fetch("https://rapidapi.p.rapidapi.com/search?q=" + search[x], {
                         method: "GET",
-                        headers: {
-                            "x-rapidapi-key": "49f4e1e876msh90846b28b1ca30fp193c58jsn17d62173eae9",
-                            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-                        },
+                        headers,
                     })
                         .then((response) => {
                             //console.log(response);
                             return response.json();
                         })
-                        .then((body) => {
-                            //console.log(body.data[1]);
-                            for (let i = 0; i < body.data.length; i++) {
-                                if (uniqueAlbums.includes(body.data[i].album.id) != true) {
-                                    uniqueAlbums.push(body.data[i].album.id);
-                                    albums.push(body.data[i].album.title);
-                                }
-                                destination[x].innerHTML += `<div class="col-12 col-sm-6 col-md-4 col-lg-2 p-0">
-        <div class="composition m-1">
-          <div class="image">
-            <img src="${body.data[i].album.cover_medium}" class="albumcover" alt="Error Occured">
-            <div class="playbtns d-flex flex-row justify-content-around">
-              <button class="btn btn-success"><a href='${body.data[i].preview}' class="fa fa-play text-decoration-none text-white"></a></button>
-            </div>
-          </div>
-          <figcaption>${body.data[i].album.title}</figcaption>
-        </div>
-        </div>`;
-                            }
-                        })
                         .catch((err) => {
                             console.error(err);
                         });
 
-                }
-            };
+                    Promise.all(fetchTracks).then(body => {
+                        console.log(body[x].data);
+                        for (let i = 0; i < body[x].data.length; i++) {
+                            if (uniqueAlbums.includes(body[x].data[i].album.id) != true) {
+                                uniqueAlbums.push(body[x].data[i].album.id);
+                                albums.push(body[x].data[i].album.title);
+                            }
+                            destination[x].innerHTML += `<div class="col-12 col-sm-6 col-md-4 col-lg-2 p-0">
+        <div class="composition m-1">
+          <div class="image">
+            <img src="${body[x].data[i].album.cover_medium}" class="albumcover" alt="Error Occured">
+            <div class="playbtns d-flex flex-row justify-content-around">
+              <button class="btn btn-success"><a href='${body[x].data[i].preview}' class="fa fa-play text-decoration-none text-white"></a></button>
+            </div>
+          </div>
+          <figcaption>${body[x].data[i].album.title}</figcaption>
+        </div>
+        </div>`;
+                        }
+
+                    })
+
+
+                };
+            }
             const listAlbums = (event) => {
                 let list = document.createElement("ul");
                 let header = document.createElement("h4");

@@ -195,7 +195,7 @@ div img:hover ~ .playbtns .btn-success,
 
 .btn-success:hover {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 /**================= FOOTER===================**/
